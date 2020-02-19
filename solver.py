@@ -1,16 +1,24 @@
 import numpy as np
 
 grid = [
-    [5,3,0,0,7,0,0,0,0],
-    [6,0,0,1,9,5,0,0,0],
-    [0,9,8,0,0,0,0,6,0],
-    [8,0,0,0,6,0,0,0,3],
-    [4,0,0,8,0,3,0,0,1],
-    [7,0,0,0,2,0,0,0,6],
-    [0,6,0,0,0,0,1,8,0],
-    [0,0,0,4,1,9,0,0,5],
-    [0,0,0,0,8,0,0,7,9]
+    ['X','X','X','X','X','X','X','X','X'],
+    ['X','X','X','X','X','X','X','X','X'],
+    ['X','X','X','X','X','X','X','X','X'],
+    ['X','X','X','X','X','X','X','X','X'],
+    ['X','X','X','X','X','X','X','X','X'],
+    ['X','X','X','X','X','X','X','X','X'],
+    ['X','X','X','X','X','X','X','X','X'],
+    ['X','X','X','X','X','X','X','X','X'],
+    ['X','X','X','X','X','X','X','X','X']
 ]
+
+print('Preencha o soduko, caso queira manter vazio, preencha com 0.\n')
+for i in range(9) :
+    for j in range(9) :
+        grid[i][j] = int(input('Digite o valor da linha: ' + str(i) + ' e coluna: ' + str(j) + ' :\n'))
+        print('\n')
+        print(np.matrix(grid))
+
 
 def possible(y, x, n) :
     global grid
@@ -39,6 +47,8 @@ def solve() :
                         solve()
                         grid[y][x] = 0
                 return
+    print('\n')
+    print('--- RESOLVENDO: EM PROGRESSO ---')
     print('\n')
     print(np.matrix(grid))
 
